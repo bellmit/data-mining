@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdrx.dm.core.mapper.DbInstanceMapper">
+    <insert id="save">
+        INSERT INTO DB_INSTANCE(
+        instance_id,
+        instance_type,
+        instance_ip,
+        instance_port,
+        instance_name,
+        instance_user,
+        instance_passwd
+        )VALUES(
+        #{instanceId},
+        #{instanceType},
+        #{instanceIp},
+        #{instancePort},
+        #{instanceName},
+        #{instanceUser},
+        #{instancePasswd}
+        )
+    </insert>
+    <update id="update"></update>
+    <update id="executeUpdate"></update>
+    <select id="query"></select>
+    <select id="queryPager"></select>
+    <select id="find"></select>
+    <delete id="delete"></delete>
+</mapper>

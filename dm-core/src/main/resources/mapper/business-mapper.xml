@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jdrx.dm.core.mapper.BusinessMapper">
+    <insert id="save">
+        INSERT INTO BUSINESS(
+        business_id,
+        algorithm_type,
+        algorithm_content
+        )VALUES(
+        #{businessId},
+        #{algorithmType},
+        #{algorithmContent}
+        )
+    </insert>
+    <update id="update"></update>
+    <update id="executeUpdate"></update>
+    <select id="query"></select>
+    <select id="queryPager"></select>
+    <select id="find"></select>
+    <delete id="delete"></delete>
+</mapper>
