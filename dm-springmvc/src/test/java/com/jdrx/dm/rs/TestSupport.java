@@ -1,7 +1,6 @@
 package com.jdrx.dm.rs;
 
 import com.evercreative.jetty.JettyUtil;
-import org.eclipse.jetty.server.Server;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -19,7 +18,6 @@ import static com.jdrx.dm.baseinfo.commons.GlobalConfig.get;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath*:META-INF/spring/module-*.xml")
 public class TestSupport {
-    protected Server server;
     protected Client client;
     protected int port = Integer.parseInt(get("request.port", "8080"));
     protected String contextPath = get("request.context.path", "/");
@@ -27,14 +25,12 @@ public class TestSupport {
 
     @Before
     public void init()throws Exception{
-        server = JettyUtil.createServer(contextPath, port);
-        server.start();
+        JettyUtil.newJettyUtil().createServer(contextPath, port);
         client = ClientBuilder.newClient();
     }
 
     @After
     public void destroy()throws Exception{
-        server.stop();
         client.close();
     }
 }
